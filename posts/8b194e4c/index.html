@@ -1,0 +1,316 @@
+<!DOCTYPE html><html class="theme-next gemini use-motion" lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#222"><script src="/lib/pace/pace.min.js?v=1.0.2"></script><link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet"><link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4"><link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222"><link rel="manifest" href="/images/manifest.json"><meta name="msapplication-config" content="/images/browserconfig.xml"><meta name="keywords" content="python3_ssh&#x64CD;&#x4F5C;,"><link rel="alternate" href="/atom.xml" title="R5MTF&apos;S BLOG" type="application/atom+xml"><meta name="description" content="&amp;#x5E94;&amp;#x7528;&amp;#x573A;&amp;#x666F;&amp;#x4F5C;&amp;#x4E3A;&amp;#x4E00;&amp;#x4E2A;&amp;#x82E6;&amp;#x903C;&amp;#x7684;&amp;#x5B89;&amp;#x5168;&amp;#x4ECE;&amp;#x4E1A;&amp;#x4EBA;&amp;#x5458;&amp;#xFF0C;&amp;#x5F53;&amp;#x67D0;&amp;#x5929;&amp;#x4F60;&amp;#x6709;&amp;#x4E00;&amp;#x5927;"><meta name="keywords" content="python3_ssh&#x64CD;&#x4F5C;"><meta property="og:type" content="article"><meta property="og:title" content="python3&#x9ED1;&#x5BA2;&#x4E4B;ssh&#x50F5;&#x5C38;&#x6279;&#x91CF;&#x64CD;&#x4F5C;"><meta property="og:url" content="https://r5mtf.github.io/posts/8b194e4c/index.html"><meta property="og:site_name" content="R5MTF&apos;S BLOG"><meta property="og:description" content="&amp;#x5E94;&amp;#x7528;&amp;#x573A;&amp;#x666F;&amp;#x4F5C;&amp;#x4E3A;&amp;#x4E00;&amp;#x4E2A;&amp;#x82E6;&amp;#x903C;&amp;#x7684;&amp;#x5B89;&amp;#x5168;&amp;#x4ECE;&amp;#x4E1A;&amp;#x4EBA;&amp;#x5458;&amp;#xFF0C;&amp;#x5F53;&amp;#x67D0;&amp;#x5929;&amp;#x4F60;&amp;#x6709;&amp;#x4E00;&amp;#x5927;"><meta property="og:locale" content="zh-Hans"><meta property="og:updated_time" content="2018-03-27T16:49:06.267Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="python3&#x9ED1;&#x5BA2;&#x4E4B;ssh&#x50F5;&#x5C38;&#x6279;&#x91CF;&#x64CD;&#x4F5C;"><meta name="twitter:description" content="&amp;#x5E94;&amp;#x7528;&amp;#x573A;&amp;#x666F;&amp;#x4F5C;&amp;#x4E3A;&amp;#x4E00;&amp;#x4E2A;&amp;#x82E6;&amp;#x903C;&amp;#x7684;&amp;#x5B89;&amp;#x5168;&amp;#x4ECE;&amp;#x4E1A;&amp;#x4EBA;&amp;#x5458;&amp;#xFF0C;&amp;#x5F53;&amp;#x67D0;&amp;#x5929;&amp;#x4F60;&amp;#x6709;&amp;#x4E00;&amp;#x5927;"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Gemini",version:"5.1.4",sidebar:{position:"left",display:"post",offset:12,b2t:!0,scrollpercent:!0,onmobile:!1},fancybox:!0,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},duoshuo:{userId:"0",author:"博主"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="https://r5mtf.github.io/posts/8b194e4c/"><title>python3&#x9ED1;&#x5BA2;&#x4E4B;ssh&#x50F5;&#x5C38;&#x6279;&#x91CF;&#x64CD;&#x4F5C; | R5MTF&apos;S BLOG</title></head><body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div> <a href="https://github.com/R5MTF" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#64ceaa;color:#fff;position:absolute;top:0;border:0;right:0" aria-hidden="true"><path d="M0 0 115 115 130 115 142 142 250 250 250 0Z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4L133.7 101.6C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style><header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">R5MTF&apos;S BLOG</span><span class="logo-line-after"><i></i></span></a></div><h1 class="site-subtitle" itemprop="description">Welcome to R5MTF&apos;S BLOG</h1></div><div class="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br> &#x9996;&#x9875;</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br> &#x5173;&#x4E8E;</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br> &#x6807;&#x7B7E;</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br> &#x5206;&#x7C7B;</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br> &#x5F52;&#x6863;</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i><br> &#x7AD9;&#x70B9;&#x5730;&#x56FE;</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br> &#x641C;&#x7D22;</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i></span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"> <input autocomplete="off" placeholder="&#x641C;&#x7D22;..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://r5mtf.github.io/posts/8b194e4c/"><span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person"><meta itemprop="name" content="R5MTF"><meta itemprop="description" content=""><meta itemprop="image" content="/images/avatar.jpg"></span><span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization"><meta itemprop="name" content="R5MTF&apos;S BLOG"></span><header class="post-header"><h2 class="post-title" itemprop="name headline">python3&#x9ED1;&#x5BA2;&#x4E4B;ssh&#x50F5;&#x5C38;&#x6279;&#x91CF;&#x64CD;&#x4F5C;</h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">&#x53D1;&#x8868;&#x4E8E;</span> <time title="&#x521B;&#x5EFA;&#x4E8E;" itemprop="dateCreated datePublished" datetime="2018-03-27T22:21:26+08:00">2018-03-27</time></span> <span class="post-category"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span> <span class="post-meta-item-text">&#x5206;&#x7C7B;&#x4E8E;</span> <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span></span> <span class="post-comments-count"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-comment-o"></i></span><a href="/posts/8b194e4c/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="/posts/8b194e4c/" itemprop="commentCount"></span></a></span><div class="post-wordcount"><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i></span> <span class="post-meta-item-text">&#x5B57;&#x6570;&#x7EDF;&#x8BA1;:</span> <span title="&#x5B57;&#x6570;&#x7EDF;&#x8BA1;">1,032</span> <span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-clock-o"></i></span> <span class="post-meta-item-text">&#x9605;&#x8BFB;&#x65F6;&#x957F; &#x2248;</span> <span title="&#x9605;&#x8BFB;&#x65F6;&#x957F;">5</span></div></div></header><div class="post-body han-init-context" itemprop="articleBody"><h2 id="&#x5E94;&#x7528;&#x573A;&#x666F;"><a href="#&#x5E94;&#x7528;&#x573A;&#x666F;" class="headerlink" title="&#x5E94;&#x7528;&#x573A;&#x666F;"></a>&#x5E94;&#x7528;&#x573A;&#x666F;</h2><p>&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x82E6;&#x903C;&#x7684;&#x5B89;&#x5168;&#x4ECE;&#x4E1A;&#x4EBA;&#x5458;&#xFF0C;&#x5F53;&#x67D0;&#x5929;&#x4F60;&#x6709;&#x4E00;&#x5927;&#x6279;linux&#x4E3B;&#x673A;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x6F0F;&#x6D1E;&#x6392;&#x67E5;&#xFF0C;ssh&#x6279;&#x91CF;&#x64CD;&#x4F5C;&#x6216;&#x8BB8;&#x53EF;&#x4EE5;&#x8BA9;&#x4F60;&#x6709;&#x5927;&#x628A;&#x65F6;&#x95F4;&#x53BB;&#x64A9;&#x59B9;&#x54DF;~</p><h2 id="Pexpect&#x6A21;&#x5757;&#x4ECB;&#x7ECD;"><a href="#Pexpect&#x6A21;&#x5757;&#x4ECB;&#x7ECD;" class="headerlink" title="Pexpect&#x6A21;&#x5757;&#x4ECB;&#x7ECD;"></a>Pexpect&#x6A21;&#x5757;&#x4ECB;&#x7ECD;</h2><p>Pexpect&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x4E0E;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x81EA;&#x52A8;&#x4EA4;&#x4E92;&#x7684;pyhon&#x6A21;&#x5757;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x901A;&#x8FC7;&#x542F;&#x52A8;&#x5E76;&#x63A7;&#x5236;&#x5B50;&#x7A0B;&#x5E8F;&#xFF0C;&#x4F7F;&#x7528;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x5BF9;&#x7A0B;&#x5E8F;&#x8F93;&#x51FA;&#x4F5C;&#x51FA;&#x7279;&#x5B9A;&#x54CD;&#x5E94;&#xFF0C;&#x5C31;&#x50CF;&#x4EBA;&#x7C7B;&#x5728;&#x64CD;&#x4F5C;&#x547D;&#x4EE4;&#x884C;&#x4E00;&#x6837;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x4E0E;ssh&#x3001;ftp&#x3001;telnet&#x7B49;&#x5B9E;&#x73B0;&#x81EA;&#x52A8;&#x4EA4;&#x4E92;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x5C06;&#x7528;&#x5230;&#x5B83;&#x91CC;&#x9762;&#x7684;pxssh&#x7C7B;&#x6765;&#x5B9E;&#x73B0;&#x4E0E;ssh&#x7684;&#x81EA;&#x52A8;&#x4EA4;&#x4E92;&#x3002;&#x5F53;&#x7136;&#x5B83;&#x8FD8;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5B9E;&#x73B0;&#x6279;&#x91CF;&#x8F6F;&#x4EF6;&#x4E0B;&#x53D1;&#x5B89;&#x88C5;&#xFF0C;&#x8BF7;&#x5404;&#x4F4D;&#x5927;&#x795E;&#x81EA;&#x884C;&#x8111;&#x8865;&#x3002;<br>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x65B9;&#x5F0F;&#x5B89;&#x88C5;&#x5B83;&#xFF1A;<br>1.pip&#x5B89;&#x88C5;<br></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pexpect</span><br></pre></td></tr></tbody></table></figure><p></p><p>2.&#x6E90;&#x7801;&#x5B89;&#x88C5;<br></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python setup.py install</span><br></pre></td></tr></tbody></table></figure><p></p><h2 id="pxssh&#x57FA;&#x672C;&#x4F7F;&#x7528;"><a href="#pxssh&#x57FA;&#x672C;&#x4F7F;&#x7528;" class="headerlink" title="pxssh&#x57FA;&#x672C;&#x4F7F;&#x7528;"></a>pxssh&#x57FA;&#x672C;&#x4F7F;&#x7528;</h2><p>&#x6211;&#x7684;&#x73AF;&#x5883;&#x662F;kali2.0+python3.6&#x3002;&#x63A5;&#x4E0B;&#x6765;&#x53EA;&#x8BB2;&#x5230;&#x4ECA;&#x5929;&#x7684;&#x4F7F;&#x7528;&#x8303;&#x56F4;&#xFF0C;&#x5176;&#x5B83;&#x8BF7;&#x81EA;&#x884C;&#x63A2;&#x7D22;&#x3002;<br>&#x6211;&#x4EEC;&#x5148;&#x5BFC;&#x5165;pxssh&#x7C7B;&#xFF0C;&#x7136;&#x540E;&#x5B9E;&#x4F8B;&#x5316;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;ssh&#x8FDE;&#x63A5;&#xFF1A;<br></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pexpect <span class="keyword">import</span> pxssh</span><br><span class="line">s = pxssh.pxssh()</span><br><span class="line">s.login(host,user,password)</span><br></pre></td></tr></tbody></table></figure><p></p><p>##&#x6784;&#x5EFA;&#x6279;&#x91CF;ssh&#x811A;&#x672C;<br>&#x56E0;&#x4E3A;&#x9700;&#x8981;&#x5BF9;&#x5927;&#x91CF;&#x4E3B;&#x673A;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x4E3A;&#x4E86;&#x7B80;&#x5316;&#x4EE3;&#x7801;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C06;&#x8FD9;&#x4E9B;&#x4E3B;&#x673A;&#x5F62;&#x6210;&#x4E00;&#x4E2A;&#x7C7B;BotNet()&#xFF0C;&#x628A;&#x8FD9;&#x4E9B;&#x4E3B;&#x673A;&#x6240;&#x5171;&#x6709;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x5168;&#x90E8;&#x5728;&#x7C7B;&#x4E2D;&#x8FDB;&#x884C;&#x5B9E;&#x73B0;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#x6765;&#x6279;&#x91CF;&#x64CD;&#x4F5C;&#x3002;<br>&#x4EE5;&#x4E0B;&#x662F;BotNet(&#xFF09;&#x7C7B;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#xFF1A;<br></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BotNet</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, host, user, password)</span>:</span>  //&#x521D;&#x59CB;&#x5316;&#x5C5E;&#x6027;</span><br><span class="line">        self.host = host</span><br><span class="line">        self.user = user</span><br><span class="line">        self.password = password</span><br><span class="line">        self.session = self.connect()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">connect</span><span class="params">(self)</span>:</span> //&#x5B9E;&#x73B0;ssh&#x8FDE;&#x63A5;&#x65B9;&#x6CD5;connect()</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            s = pxssh.pxssh()</span><br><span class="line">            s.login(self.host, self.user, self.password)</span><br><span class="line">            <span class="keyword">return</span> s</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            print(e)</span><br><span class="line">            print(<span class="string">&apos;[-] Error Connecting&apos;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">send_command</span><span class="params">(self, cmd)</span>:</span> //&#x5B9E;&#x73B0;&#x53D1;&#x9001;&#x547D;&#x4EE4;&#x65B9;&#x6CD5;send_command()</span><br><span class="line">        self.session.sendline(cmd)</span><br><span class="line">        self.session.prompt()</span><br><span class="line">        <span class="keyword">return</span> self.session.before</span><br></pre></td></tr></tbody></table></figure><p></p><p>&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x51FD;&#x6570;addBotnet()&#x6765;&#x63A5;&#x6536;host&#x3001;user&#x3001;password&#x6765;&#x5B9E;&#x4F8B;&#x5316;&#x4E00;&#x4E2A;botnet&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x5B83;&#xFF0C;&#x5C06;&#x5B83;&#x6DFB;&#x52A0;&#x5230;&#x4E00;&#x4E2A;botNet&#x6570;&#x7EC4;&#x4E2D;&#x3002;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;<br></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">addBotnet</span><span class="params">(host, user, password)</span>:</span></span><br><span class="line">     botnet = BotNet(host, user, password)</span><br><span class="line">    <span class="keyword">return</span> botnet</span><br></pre></td></tr></tbody></table></figure><p></p><p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x51FD;&#x6570;botnetCommand()&#x6765;&#x904D;&#x5386;botNet&#x6570;&#x7EC4;&#xFF0C;&#x628A;&#x8981;&#x6267;&#x884C;&#x7684;&#x547D;&#x4EE4;&#x53D1;&#x9001;&#x5230;&#x6BCF;&#x4E00;&#x4E2A;botnet&#x5BF9;&#x8C61;&#x4E0A;&#xFF0C;&#x5B9E;&#x73B0;&#x6279;&#x91CF;&#x64CD;&#x4F5C;&#x3002;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;<br></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">botnetCommand</span><span class="params">(command, botNet)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> botnet <span class="keyword">in</span> botNet:</span><br><span class="line">        print(<span class="string">&apos;[+] send &apos;</span> + command + <span class="string">&apos;\n&apos;</span>)</span><br><span class="line">        output = botnet.send_command(command)</span><br><span class="line">        print(<span class="string">&apos;[*] Output from &apos;</span> + botnet.host)</span><br><span class="line">        print(<span class="string">&apos;[+] &apos;</span> + output + <span class="string">&apos;\n&apos;</span>)</span><br></pre></td></tr></tbody></table></figure><p></p><p>&#x6700;&#x540E;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;main()&#x51FD;&#x6570;&#x4ECE;&#x6587;&#x4EF6;&#x8BFB;&#x53D6;&#x56FA;&#x5B9A;&#x683C;&#x5F0F;&#x7684;&#x6570;&#x636E;&#xFF08;host:user:password&#xFF09;&#xFF0C;&#x5E76;&#x901A;&#x8FC7;argparse&#x6A21;&#x5757;&#x8F93;&#x51FA;&#x7A0B;&#x5E8F;&#x7684;&#x5E2E;&#x52A9;&#x6587;&#x6863;&#x3002;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;<br></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    parser = argparse.ArgumentParser(</span><br><span class="line">        usage=<span class="string">&apos;PxsshBotNet.py -F &lt;target_filename&gt; -c &lt;cmd&gt;&apos;</span>)</span><br><span class="line">    parser.add_argument(<span class="string">&apos;-F&apos;</span>, dest=<span class="string">&apos;tgtfilename&apos;</span>, type=str,</span><br><span class="line">                        help=<span class="string">&apos;The filename format is host:user:password&apos;</span>)</span><br><span class="line">    parser.add_argument(<span class="string">&apos;-c&apos;</span>, dest=<span class="string">&apos;cmd&apos;</span>, type=str,</span><br><span class="line">                        help=<span class="string">&apos;Commands issued to botNet&apos;</span>)</span><br><span class="line">    args = parser.parse_args()</span><br><span class="line">    tgtfilename = args.tgtfilename</span><br><span class="line">    cmd = args.cmd</span><br><span class="line">    <span class="keyword">if</span> (tgtfilename == <span class="keyword">None</span>):</span><br><span class="line">        print(parser.usage)</span><br><span class="line">        exit(<span class="number">0</span>)</span><br><span class="line">    botNet = []</span><br><span class="line">    <span class="keyword">with</span> open(tgtfilename, <span class="string">&apos;r&apos;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</span><br><span class="line">            str = line.strip(<span class="string">&apos;\r&apos;</span>).strip(<span class="string">&apos;\n&apos;</span>)</span><br><span class="line">            host, user, password = str.split(<span class="string">&apos;:&apos;</span>)</span><br><span class="line">            botNet.append(addBotnet(host, user, password))</span><br><span class="line">    botnetCommand(cmd, botNet)</span><br></pre></td></tr></tbody></table></figure><p></p><p>&#x6700;&#x540E;&#x6211;&#x4EEC;&#x52A0;&#x4E0A;&#x51FD;&#x6570;&#x5165;&#x53E3;&#x7A0B;&#x5E8F;&#xFF1A;<br></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&apos;__main__&apos;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></tbody></table></figure><p></p><p>##&#x7ED3;&#x679C;&#x9A8C;&#x8BC1;<br>&#x4EE5;&#x4E0B;&#x4E3A;&#x6211;&#x5728;kali rolling+python3.6&#x73AF;&#x5883;&#x4E0B;&#x6D4B;&#x8BD5;&#x5F97;&#x51FA;&#x3002;<br>&#x5E2E;&#x52A9;&#x6587;&#x6863;&#xFF1A;<br></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@kali:/home/kali<span class="comment"># python3 PxsshBotNet.py </span></span><br><span class="line">PxsshBotNet.py -F &lt;target_filename&gt; -c &lt;cmd&gt;</span><br><span class="line">root@kali:/home/kali<span class="comment"># python3 PxsshBotNet.py -h</span></span><br><span class="line">usage: PxsshBotNet.py -F &lt;target_filename&gt; -c &lt;cmd&gt;</span><br><span class="line"></span><br><span class="line">optional arguments:</span><br><span class="line">  -h, --help      show this help message <span class="keyword">and</span> exit</span><br><span class="line">  -F TGTFILENAME  The filename format <span class="keyword">is</span> host:user:password</span><br><span class="line">  -c CMD          Commands issued to botNet</span><br></pre></td></tr></tbody></table></figure><p></p><p>&#x6267;&#x884C;whoami&#x7ED3;&#x679C;&#xFF1A;<br></p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">root@kali:/home/kali<span class="comment"># python3 PxsshBotNet.py -F botnet.txt -c whoami</span></span><br><span class="line">[+] send whoami</span><br><span class="line"></span><br><span class="line">[*] Output <span class="keyword">from</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></span><br><span class="line">[+] whoami</span><br><span class="line">r4mtf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[+] send whoami</span><br><span class="line"></span><br><span class="line">[*] Output <span class="keyword">from</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></span><br><span class="line">[+] whoami</span><br><span class="line">r5mtf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[+] send whoami</span><br><span class="line"></span><br><span class="line">[*] Output <span class="keyword">from</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></span><br><span class="line">[+] whoami</span><br><span class="line">r6mtf</span><br></pre></td></tr></tbody></table></figure><p></p><p>##&#x603B;&#x7ED3;<br>&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x7840;&#x6846;&#x67B6;&#xFF0C;&#x6709;&#x5174;&#x8DA3;&#x7684;&#x5927;&#x8868;&#x54E5;&#x53EF;&#x4EE5;&#x53BB;&#x591A;&#x591A;&#x53D1;&#x6398;&#xFF0C;&#x535A;&#x4E3B;&#x662F;&#x83DC;&#x9E1F;&#x4E00;&#x679A;&#xFF0C;&#x5199;&#x6B64;&#x535A;&#x6587;&#x4E5F;&#x662F;&#x4E3A;&#x4E86;&#x8BB0;&#x5F55;&#x77E5;&#x8BC6;&#xFF0C;&#x592F;&#x5B9E;&#x77E5;&#x8BC6;&#xFF0C;&#x629B;&#x7816;&#x5F15;&#x7389;&#xFF0C;&#x5E0C;&#x671B;&#x5404;&#x4F4D;&#x770B;&#x5230;&#x7684;&#x5927;&#x795E;&#x52FF;&#x55B7;&#xFF0C;&#x672C;&#x6587;&#x65E8;&#x5728;&#x63A2;&#x7D22;&#x81EA;&#x52A8;&#x5316;&#x5B89;&#x5168;&#x6D4B;&#x8BD5;&#x63A2;&#x7D22;&#xFF0C;&#x8BF7;&#x52FF;&#x5C06;&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x7528;&#x4E8E;&#x975E;&#x6CD5;&#x7528;&#x9014;&#x3002;</p><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({})</script></div><div><div><div style="text-align:center;color:#a9a9a9;font-size:20px">---------------&#x672C;&#x6587;&#x7ED3;&#x675F;<i class="fa fa-slideshare"></i>&#x611F;&#x8C22;&#x60A8;&#x7684;&#x9605;&#x8BFB;---------------</div></div></div><div><div class="my_post_copyright"><script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script><script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script><script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script><p><span>&#x672C;&#x6587;&#x6807;&#x9898;:</span><a href="/posts/8b194e4c/">python3&#x9ED1;&#x5BA2;&#x4E4B;ssh&#x50F5;&#x5C38;&#x6279;&#x91CF;&#x64CD;&#x4F5C;</a></p><p><span>&#x6587;&#x7AE0;&#x4F5C;&#x8005;:</span><a href="/" title="&#x8BBF;&#x95EE; R5MTF &#x7684;&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;">R5MTF</a></p><p><span>&#x53D1;&#x5E03;&#x65F6;&#x95F4;:</span>2018&#x5E74;03&#x6708;27&#x65E5; - 22:03</p><p><span>&#x6700;&#x540E;&#x66F4;&#x65B0;:</span>2018&#x5E74;03&#x6708;28&#x65E5; - 00:03</p><p><span>&#x539F;&#x59CB;&#x94FE;&#x63A5;:</span><a href="/posts/8b194e4c/" title="python3&#x9ED1;&#x5BA2;&#x4E4B;ssh&#x50F5;&#x5C38;&#x6279;&#x91CF;&#x64CD;&#x4F5C;">https://r5mtf.github.io/posts/8b194e4c/</a><span class="copy-path" title="&#x70B9;&#x51FB;&#x590D;&#x5236;&#x6587;&#x7AE0;&#x94FE;&#x63A5;"><i class="fa fa-clipboard" data-clipboard-text="https://r5mtf.github.io/posts/8b194e4c/" aria-label="&#x590D;&#x5236;&#x6210;&#x529F;&#xFF01;"></i></span></p><p><span>&#x8BB8;&#x53EF;&#x534F;&#x8BAE;:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">&#x7F72;&#x540D;-&#x975E;&#x5546;&#x4E1A;&#x6027;&#x4F7F;&#x7528;-&#x7981;&#x6B62;&#x6F14;&#x7ECE; 4.0 &#x56FD;&#x9645;</a> &#x8F6C;&#x8F7D;&#x8BF7;&#x4FDD;&#x7559;&#x539F;&#x6587;&#x94FE;&#x63A5;&#x53CA;&#x4F5C;&#x8005;&#x3002;</p></div><script>var clipboard=new Clipboard(".fa-clipboard");$(".fa-clipboard").click(function(){clipboard.on("success",function(){swal({title:"",text:"复制成功",icon:"success",showConfirmButton:!0})})})</script></div><div><div style="padding:10px 0;margin:20px auto;width:90%;text-align:center"><div>&#x8C22;&#x8C22;&#x6295;&#x5582;</div> <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById(&apos;QR&apos;); if (qr.style.display === &apos;none&apos;) {qr.style.display=&apos;block&apos;;} else {qr.style.display=&apos;none&apos;}"> <span>&#x6253;&#x8D4F;</span></button><div id="QR" style="display:none"><div id="wechat" style="display:inline-block"> <img id="wechat_qr" src="/images/wechatpay.png" alt="R5MTF &#x5FAE;&#x4FE1;&#x652F;&#x4ED8;"><p>&#x5FAE;&#x4FE1;&#x652F;&#x4ED8;</p></div><div id="alipay" style="display:inline-block"> <img id="alipay_qr" src="/images/alipay.png" alt="R5MTF &#x652F;&#x4ED8;&#x5B9D;"><p>&#x652F;&#x4ED8;&#x5B9D;</p></div></div></div></div><div><ul class="post-copyright"><li class="post-copyright-author"> <strong>&#x672C;&#x6587;&#x4F5C;&#x8005;&#xFF1A;</strong> R5MTF</li><li class="post-copyright-link"> <strong>&#x672C;&#x6587;&#x94FE;&#x63A5;&#xFF1A;</strong> <a href="https://r5mtf.github.io/posts/8b194e4c/" title="python3&#x9ED1;&#x5BA2;&#x4E4B;ssh&#x50F5;&#x5C38;&#x6279;&#x91CF;&#x64CD;&#x4F5C;">https://r5mtf.github.io/posts/8b194e4c/</a></li><li class="post-copyright-license"> <strong>&#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;</strong> &#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528; <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> &#x8BB8;&#x53EF;&#x534F;&#x8BAE;&#x3002;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</li></ul></div><footer class="post-footer"><div class="post-tags"><a href="/tags/python3-ssh&#x64CD;&#x4F5C;/" rel="tag"><i class="fa fa-tag"></i> python3_ssh&#x64CD;&#x4F5C;</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/posts/4a17b156/" rel="next" title="&#x5EFA;&#x535A;&#x7EAA;&#x5FF5;"><i class="fa fa-chevron-left"></i> &#x5EFA;&#x535A;&#x7EAA;&#x5FF5;</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"></div></div></footer></div></article><div class="post-spread"><div class="jiathis_style"> <span class="jiathis_txt">&#x5206;&#x4EAB;&#x5230;&#xFF1A;</span> <a class="jiathis_button_fav">&#x6536;&#x85CF;&#x5939;</a> <a class="jiathis_button_copy">&#x590D;&#x5236;&#x7F51;&#x5740;</a> <a class="jiathis_button_email">&#x90AE;&#x4EF6;</a> <a class="jiathis_button_weixin">&#x5FAE;&#x4FE1;</a> <a class="jiathis_button_qzone">QQ&#x7A7A;&#x95F4;</a> <a class="jiathis_button_tqq">&#x817E;&#x8BAF;&#x5FAE;&#x535A;</a> <a class="jiathis_button_douban">&#x8C46;&#x74E3;</a> <a class="jiathis_button_share">&#x4E00;&#x952E;&#x5206;&#x4EAB;</a> <a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">&#x66F4;&#x591A;</a><a class="jiathis_counter_style"></a></div><script type="text/javascript">var jiathis_config={data_track_clickback:!0,summary:"",shortUrl:!1,hideMore:!1}</script><script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script></div></div></div><div class="comments" id="comments"><div id="disqus_thread"><noscript> Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap"> &#x6587;&#x7AE0;&#x76EE;&#x5F55;</li><li class="sidebar-nav-overview" data-target="site-overview-wrap"> &#x7AD9;&#x70B9;&#x6982;&#x89C8;</li></ul><section class="site-overview-wrap sidebar-panel"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person"> <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="R5MTF"><p class="site-author-name" itemprop="name">R5MTF</p><p class="site-description motion-element" itemprop="description"></p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"> <a href="/archives/"><span class="site-state-item-count">2</span> <span class="site-state-item-name">&#x65E5;&#x5FD7;</span></a></div><div class="site-state-item site-state-categories"> <a href="/categories/index.html"><span class="site-state-item-count">1</span> <span class="site-state-item-name">&#x5206;&#x7C7B;</span></a></div><div class="site-state-item site-state-tags"> <a href="/tags/index.html"><span class="site-state-item-count">2</span> <span class="site-state-item-name">&#x6807;&#x7B7E;</span></a></div></nav><div class="feed-link motion-element"><a href="/atom.xml" rel="alternate"><i class="fa fa-rss"></i> RSS</a></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="mailto:remtf@sina.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i> E-Mail</a></span><span class="links-of-author-item"><a href="https://weibo.com/u/6086113182" target="_blank" title="Weibo"><i class="fa fa-fw fa-weibo"></i> Weibo</a></span><span class="links-of-author-item"><a href="https://github.com/R5MTF" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i> GitHub</a></span></div></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#&#x5E94;&#x7528;&#x573A;&#x666F;"><span class="nav-number">1.</span> <span class="nav-text">&#x5E94;&#x7528;&#x573A;&#x666F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pexpect&#x6A21;&#x5757;&#x4ECB;&#x7ECD;"><span class="nav-number">2.</span> <span class="nav-text">Pexpect&#x6A21;&#x5757;&#x4ECB;&#x7ECD;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pxssh&#x57FA;&#x672C;&#x4F7F;&#x7528;"><span class="nav-number">3.</span> <span class="nav-text">pxssh&#x57FA;&#x672C;&#x4F7F;&#x7528;</span></a></li></ol></div></div></section><div class="back-to-top"><i class="fa fa-arrow-up"></i> <span id="scrollpercent"><span>0</span>%</span></div></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="copyright">&#xA9; <span itemprop="copyrightYear">2018</span><span class="with-love"><i class="fa fa-user"></i></span> <span class="author" itemprop="copyrightHolder">R5MTF</span> <span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-area-chart"></i></span> <span class="post-meta-item-text">Site words total count:</span> <span title="Site words total count">1.1k</span></div><div class="powered-by"><i class="fa fa-user-md"></i> <span id="busuanzi_container_site_uv">&#x672C;&#x7AD9;&#x8BBF;&#x5BA2;&#x6570;:<span id="busuanzi_value_site_uv"></span></span></div></div></footer></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script><script type="text/javascript" src="/lib/three/three.min.js"></script><script type="text/javascript" src="/lib/three/three-waves.min.js"></script><script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script><script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script><script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script><script type="text/javascript">var disqus_config=function(){this.page.url="https://r5mtf.github.io/posts/8b194e4c/",this.page.identifier="/posts/8b194e4c/",this.page.title="python3黑客之ssh僵尸批量操作"},d=document,s=d.createElement("script");s.src="https://.disqus.com/embed.js",s.setAttribute("data-timestamp",""+ +new Date),(d.head||d.body).appendChild(s)</script><script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><canvas class="fireworks" style="position:fixed;left:0;top:0;z-index:1;pointer-events:none"></canvas><script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script><script type="text/javascript" src="/js/src/fireworks.js"></script><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({})</script></body></html>
